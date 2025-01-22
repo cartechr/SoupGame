@@ -6,26 +6,28 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     private InputAction movementAction;
-    private Vector2 input;
-    private Rigidbody2D rb;
-    [SerializeField]
-    private float moveSpeed = 5f;
+    private InputAction interactAction;
+    private PlayerMovement playerMovement;
+    private PlayerInteraction playerInteraction;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        // assign references
+        playerMovement = GetComponent<PlayerMovement>();
+        playerInteraction = GetComponent<PlayerInteraction>();
+
+        // set up actions
         movementAction = InputSystem.actions.FindAction("Movement");
+        interactAction = InputSystem.actions.FindAction("Interact");
     }
 
     // Update is called once per frame
     void Update()
     {
-        input = movementAction.ReadValue<Vector2>();
-    }
+        playerMovement.ReceiveMovementInput(movementAction.ReadValue<Vector2>());
 
-    private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(input.x * moveSpeed, input.y * moveSpeed);
+        if (interactAction.WasPressedThisFrame())
+            playerInteraction.ReceiveInteractInput();
     }
 }
