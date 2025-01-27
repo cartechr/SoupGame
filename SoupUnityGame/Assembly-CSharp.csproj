@@ -65,6 +65,8 @@
     <Compile Include="Assets\Scripts\SoupPot.cs" />
     <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
     <Compile Include="Assets\Scripts\Interactible.cs" />
+    <Compile Include="Assets\Scripts\AISystem.cs" />
+    <Compile Include="Assets\Scripts\WaveSystem.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
