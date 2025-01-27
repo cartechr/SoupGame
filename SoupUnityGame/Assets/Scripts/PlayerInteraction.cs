@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    List<Interactible> interatibles = new List<Interactible>();
+    List<Interactable> interactables = new List<Interactable>();
 
     private void Start()
     {
@@ -13,13 +13,13 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void ReceiveInteractInput()
     {
-        if (interatibles.Count == 0)
+        if (interactables.Count == 0)
             return;
 
         float shortestDistance = Mathf.Infinity;
-        Interactible savedInteractible = null;
+        Interactable savedInteractible = null;
 
-        foreach (Interactible item in interatibles) 
+        foreach (Interactable item in interactables) 
         {
             float distance = Vector3.Distance(transform.position, item.transform.position);
             if(distance < shortestDistance)
@@ -33,17 +33,17 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Interactible>() == true)
+        if (collision.GetComponent<Interactable>() == true)
         {
-            interatibles.Add(collision.GetComponent<Interactible>());
+            interactables.Add(collision.GetComponent<Interactable>());
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<Interactible>() == true)
+        if (collision.GetComponent<Interactable>() == true)
         {
-            interatibles.Remove(collision.GetComponent<Interactible>());
+            interactables.Remove(collision.GetComponent<Interactable>());
         }
     }
 }
