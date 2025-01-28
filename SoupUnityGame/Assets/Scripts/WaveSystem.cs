@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 
 public class WaveSystem : MonoBehaviour
 {
+    public WaveBluePrint[] Waves;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +18,16 @@ public class WaveSystem : MonoBehaviour
     {
         
     }
+
+
+}
+
+[System.Serializable]
+public class WaveBluePrint
+{
+    public int startWave;
+
+    public CustomerAI[] customers;
+
+    public int customerCount;
 }
