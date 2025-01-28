@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CustomerAI : MonoBehaviour
 {
-
+    public Transform dest;
+    public NavMeshAgent agent;
     private CustomerWalkingState walkingState;
     private CustomerEatingState eatingState;
     private CustomerOrderingState orderingState;
@@ -20,8 +22,12 @@ public class CustomerAI : MonoBehaviour
         orderingState = new CustomerOrderingState();
         orderingState.AssignCustomerAI(this);
 
+        walkingState.AssignWalkingVariables(agent);
+        walkingState.SetDestination(dest);
         currentstate = walkingState;
+
     }
+
 
     // Update is called once per frame
     void Update()
