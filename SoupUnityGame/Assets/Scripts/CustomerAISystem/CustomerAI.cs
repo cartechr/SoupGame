@@ -23,7 +23,7 @@ public class CustomerAI : MonoBehaviour
         orderingState.AssignCustomerAI(this);
 
         walkingState.AssignWalkingVariables(agent);
-        walkingState.SetDestination(dest);
+        walkingState.SetDestination(CustomerWalkingState.NextAction.Ordering, dest);
         currentstate = walkingState;
 
     }
@@ -48,5 +48,10 @@ public class CustomerAI : MonoBehaviour
     public void SwitchToOrdering()
     {
         currentstate = orderingState;
+    }
+
+    public void UnAlive()
+    {
+        Destroy(gameObject);
     }
 }
