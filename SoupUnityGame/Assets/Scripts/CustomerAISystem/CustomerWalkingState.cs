@@ -6,14 +6,14 @@ using UnityEngine.AI;
 
 public class CustomerWalkingState : CustomerAIState
 {
-    private NavMeshAgent agent;
-
     public enum NextAction
     {
         Eating, Ordering, Leaving
     }
 
-    NextAction nextAction;
+    private NextAction nextAction;
+    private NavMeshAgent agent;
+
     public override void RealUpdate()
     {
         if (agent.remainingDistance == 0)
