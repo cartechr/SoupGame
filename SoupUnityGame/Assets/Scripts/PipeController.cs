@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PipeController : MonoBehaviour
 {
+    [SerializeField]
+    private SoupPot soupPot;
     private List<PipeSegment> segments = new List<PipeSegment>();
     private float segmentDamageChance = 0f; // between 0 and 1
     //private float damageMultiplier = 
@@ -14,7 +16,7 @@ public class PipeController : MonoBehaviour
         // set up all segments that are part of this pipe
         foreach (PipeSegment segment in transform.GetComponentsInChildren<PipeSegment>())
             segments.Add(segment);
-    }
+    } 
 
     // Update is called once per frame
     void Update()
@@ -24,6 +26,10 @@ public class PipeController : MonoBehaviour
 
     public void TakeSoup()
     {
+        if (soupPot.GetPotFullness() == 0f)
+            return;
+
+        soupPot.TakeServing();
         DamageSegment();
     }
 

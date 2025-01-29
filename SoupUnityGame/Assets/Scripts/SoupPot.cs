@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoupPot : MonoBehaviour
 {
-    private float potFullness = 0f;
+    private float potFullness = 0f; // 100f is full, 0f is empty
     private float servingAmount = 20f;
 
     [SerializeField]
@@ -13,7 +13,6 @@ public class SoupPot : MonoBehaviour
     private void Start()
     {
         UpdateFullnessGraphics();
-        StartCoroutine(TakeSoupTest());
     }
 
     private void UpdateFullnessGraphics()
@@ -39,13 +38,5 @@ public class SoupPot : MonoBehaviour
         UpdateFullnessGraphics();
     }
 
-    IEnumerator TakeSoupTest()
-    {
-        for (int i = 0; i < 20; i++)
-        {
-            yield return new WaitForSeconds(2f);
-            TakeServing();
-        }
-
-    }
+    public float GetPotFullness() => potFullness;
 }
