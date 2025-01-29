@@ -55,7 +55,6 @@
     <UnityVersion>2022.3.32f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.32f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.32f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
@@ -65,11 +64,13 @@
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Input\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\SoupPot.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\SoupSpout.cs" />
     <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
     <Compile Include="Assets\Scripts\PipeController.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
     <Compile Include="Assets\Scripts\PipeSegment.cs" />
+=======
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerEatingState.cs" />
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerWalkingState.cs" />
     <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerAIState.cs" />
     <Compile Include="Assets\Scripts\WaveSystem.cs" />
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerOrderingState.cs" />
+>>>>>>> AI-System
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
