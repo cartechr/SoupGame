@@ -63,8 +63,10 @@
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerAI.cs" />
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerAIManager.cs" />
+    <Compile Include="Assets\Scripts\TableManager.cs" />
     <Compile Include="Assets\Input\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\SoupPot.cs" />
+    <Compile Include="Assets\Scripts\Table.cs" />
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerEatingState.cs" />
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerWalkingState.cs" />
     <Compile Include="Assets\Scripts\SoupSpout.cs" />
