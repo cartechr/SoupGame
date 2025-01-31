@@ -14,6 +14,11 @@ public class CustomerWalkingState : CustomerAIState
     private NextAction nextAction;
     private NavMeshAgent agent;
 
+    public override void InitializeState()
+    {
+
+    }
+
     public override void RealUpdate()
     {
         if (agent.remainingDistance == 0)

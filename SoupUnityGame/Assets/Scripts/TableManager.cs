@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomerAIManager : MonoBehaviour
+public class TableManager : MonoBehaviour
 {
     [SerializeField]
-    private Transform customerSpawn;
+    private Table[] tables;
 
-    private static CustomerAIManager instance;
+    private static TableManager instance;
 
     private void Awake()
     {
@@ -17,10 +17,10 @@ public class CustomerAIManager : MonoBehaviour
         instance = this;
     }
 
-    public static CustomerAIManager Instance()
+    public static TableManager Instance()
     {
         return instance;
     }
 
-    public Transform GetCustomerSpawnPoint() => customerSpawn;
+    public Table[] GetTables() => tables;
 }
