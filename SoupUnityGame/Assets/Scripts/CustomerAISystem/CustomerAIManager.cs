@@ -6,18 +6,21 @@ public class CustomerAIManager : MonoBehaviour
 {
     [SerializeField]
     private Transform customerSpawn;
-    [SerializeField]
-    private Transform customerOrderSpot;
 
-    // Start is called before the first frame update
-    void Start()
+    private static CustomerAIManager instance;
+
+    private void Awake()
     {
-        
+        // setting up singleton
+        if (instance != null && instance != this)
+            Destroy(this);
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static CustomerAIManager Instance()
     {
-        
+        return instance;
     }
+
+    public Transform GetCustomerSpawnPoint() => customerSpawn;
 }

@@ -38,7 +38,7 @@ public class CustomerAI : MonoBehaviour
             }
         } while (table == null); // !!!! might cause an issue if all tables are full...
 
-        walkingState.SetDestination(CustomerWalkingState.NextAction.Ordering, table.transform);
+        SetNextWalkingDestination(CustomerWalkingState.NextAction.Ordering, table.transform);
         currentstate = walkingState;
     }
 
@@ -71,5 +71,10 @@ public class CustomerAI : MonoBehaviour
     public void UnAlive()
     {
         Destroy(gameObject);
+    }
+
+    public void SetNextWalkingDestination(CustomerWalkingState.NextAction action, Transform destination)
+    {
+        walkingState.SetDestination(action, destination);
     }
 }

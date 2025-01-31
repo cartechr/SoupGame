@@ -12,7 +12,7 @@ public class SoupPot : MonoBehaviour
 
     private void Start()
     {
-        UpdateFullnessGraphics();
+        RefillPot();
     }
 
     private void UpdateFullnessGraphics()
