@@ -8,7 +8,7 @@ public class CustomerWalkingState : CustomerAIState
 {
     public enum NextAction
     {
-        Eating, Ordering, Leaving
+        Queue, Eating, Ordering, Leaving
     }
 
     private NextAction nextAction;
@@ -25,6 +25,9 @@ public class CustomerWalkingState : CustomerAIState
         {
             switch (nextAction)
             {
+                case NextAction.Queue:
+                    customerAI.SwitchToQueue();
+                    break;
                 case NextAction.Eating:
                     customerAI.SwitchToEating();
                     break;
