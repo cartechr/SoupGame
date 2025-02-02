@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerAIManager.cs" />
     <Compile Include="Assets\Scripts\TableManager.cs" />
+    <Compile Include="Assets\Scripts\Christians\FirstPersonController.cs" />
     <Compile Include="Assets\Input\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\SoupPot.cs" />
     <Compile Include="Assets\Scripts\Table.cs" />
@@ -73,14 +74,20 @@
     <Compile Include="Assets\Scripts\SoupSpout.cs" />
     <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerQueueState.cs" />
+    <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Scripts\PipeController.cs" />
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerAIState.cs" />
     <Compile Include="Assets\Scripts\WaveSystem.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
-    <Compile Include="Assets\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerOrderingState.cs" />
+    <Compile Include="Assets\Scripts\Christians\OutlineSelection.cs" />
     <Compile Include="Assets\Scripts\PipeSegment.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
+    <None Include="Assets\QuickOutline\Readme.txt" />
+    <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
