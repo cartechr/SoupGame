@@ -7,9 +7,11 @@ public class OutlineSelection : MonoBehaviour
 {
     public Camera mainCamera;
     public LayerMask layerMask;
-    [Tooltip("Variable to calculate distance between camera and raycast hit distance")]
-    public float maxDistance = 100f;
-    public float distanceBetween; //Global variable to store the Vector3.Distance variable to calculate distance between camera and raycast hit.distance
+    Transform highlight;
+    public Material highlightMaterial;
+    public Material originalMaterialHighlight;
+    float maxDistance = 5f;
+
     private void Update()
     {
         RaycastHit hit;
@@ -18,6 +20,16 @@ public class OutlineSelection : MonoBehaviour
             Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             Debug.Log("Raycast hit: " + hit.transform.name);
 
+            highlight = hit.transform;
+            if (highlight.GetComponent<MeshRenderer>().material != highlightMaterial)
+            {
+                originalMaterialHighlight = highlight.GetComponent<MeshRenderer>().material;
+                highlight.GetComponent<MeshRenderer>().material = highlightMaterial;
+            }
+        }
+        else
+        {
+            highlight = null;
         }
 
     }
