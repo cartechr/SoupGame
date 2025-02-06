@@ -14,6 +14,12 @@ public class OutlineSelection : MonoBehaviour
 
     private void Update()
     {
+        if (highlight != null)
+        {
+            highlight.gameObject.GetComponent<Outline>().enabled = false;
+            highlight = null;
+        }
+
         RaycastHit hit;
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, maxDistance, layerMask))
         {
@@ -21,10 +27,16 @@ public class OutlineSelection : MonoBehaviour
             Debug.Log("Raycast hit: " + hit.transform.name);
 
             highlight = hit.transform;
-            if (highlight.GetComponent<MeshRenderer>().material != highlightMaterial)
+            if (highlight.GetComponent<Outline>() != null)
             {
-                originalMaterialHighlight = highlight.GetComponent<MeshRenderer>().material;
-                highlight.GetComponent<MeshRenderer>().material = highlightMaterial;
+                highlight.gameObject.GetComponent<Outline>().enabled = true;
+            }
+            else
+            {
+                Outline outline = highlight.gameObject.AddComponent<Outline>();
+                outline.enabled = true;
+                highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
+                highlight.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
             }
         }
         else
