@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3389805d682ec67428b223ba4bf07699
+guid: 1ecdb0abf391ba9478feedbdf60fa8f9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,9 +8,9 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Gray.001
-    second: {fileID: 2100000, guid: d1c322a5a1c5f7e459d7f9580e22054d, type: 2}
+    second: {fileID: 2100000, guid: 3423f281b3f11324daf2d0e3a3d9a2c7, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -37,7 +37,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
