@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PipeSegment : MonoBehaviour
 {
-    private SpriteRenderer sprite;
+    private MeshRenderer mesh;
     [SerializeField]
-    private Color workingColor;
+    private Material workingMat;
     [SerializeField]
-    private Color damagedColor;
+    private Material damagedMat;
 
     private bool working = true;
 
     private void Awake()
     {
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        mesh = GetComponentInChildren<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class PipeSegment : MonoBehaviour
         if (!working)
             return;
 
-        sprite.color = damagedColor;
+        mesh.material = damagedMat;
         working = false;
     }
 
@@ -37,7 +37,7 @@ public class PipeSegment : MonoBehaviour
         if (working)
             return;
 
-        sprite.color = workingColor;
+        mesh.material = workingMat;
         working = true;
     }
 }

@@ -7,9 +7,6 @@ public class SoupPot : MonoBehaviour
     private float potFullness = 0f; // 100f is full, 0f is empty
     private float servingAmount = 20f;
 
-    [SerializeField]
-    private GameObject fullnessBar;
-
     private void Start()
     {
         RefillPot();
@@ -17,8 +14,7 @@ public class SoupPot : MonoBehaviour
 
     private void UpdateFullnessGraphics()
     {
-        fullnessBar.transform.localScale = new Vector3(potFullness / 100f, 
-            fullnessBar.transform.localScale.y, fullnessBar.transform.localScale.z);
+        // come back and update pot visuals here to reflect fullness level!!
     }    
 
     public void TakeServing()

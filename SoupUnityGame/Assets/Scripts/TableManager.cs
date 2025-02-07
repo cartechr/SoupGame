@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TableManager : MonoBehaviour
 {
-    [SerializeField]
     private Table[] tables;
 
     private static TableManager instance;
@@ -15,6 +14,8 @@ public class TableManager : MonoBehaviour
         if (instance != null && instance != this)
             Destroy(this);
         instance = this;
+
+        tables = GetComponentsInChildren<Table>();
     }
 
     public static TableManager Instance()

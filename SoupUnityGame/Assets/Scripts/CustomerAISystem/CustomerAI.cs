@@ -10,7 +10,7 @@ public class CustomerAI : MonoBehaviour
     private CustomerWalkingState walkingState;
     private CustomerEatingState eatingState;
     private CustomerOrderingState orderingState;
-    private CustomerQueueState queueState;
+    //private CustomerQueueState queueState;
     private CustomerAIState currentstate;
 
     private Table table;
@@ -25,8 +25,8 @@ public class CustomerAI : MonoBehaviour
         eatingState.AssignCustomerAI(this);
         orderingState = new CustomerOrderingState();
         orderingState.AssignCustomerAI(this);
-        queueState = new CustomerQueueState();
-        queueState.AssignCustomerAI(this);
+        //queueState = new CustomerQueueState();
+        //queueState.AssignCustomerAI(this);
 
         walkingState.AssignWalkingVariables(agent);
 
@@ -71,11 +71,11 @@ public class CustomerAI : MonoBehaviour
         currentstate = orderingState;
         currentstate.InitializeState();
     }
-    public void SwitchToQueue()
+   /* public void SwitchToQueue()
     {
         currentstate = queueState;
         currentstate.InitializeState();
-    }
+    }*/
 
     public void UnAlive()
     {

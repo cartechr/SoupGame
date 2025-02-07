@@ -26,7 +26,7 @@ public class CustomerWalkingState : CustomerAIState
             switch (nextAction)
             {
                 case NextAction.Queue:
-                    customerAI.SwitchToQueue();
+                    //customerAI.SwitchToQueue();
                     break;
                 case NextAction.Eating:
                     customerAI.SwitchToEating();
