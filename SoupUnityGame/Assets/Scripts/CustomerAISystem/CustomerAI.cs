@@ -83,6 +83,7 @@ public class CustomerAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = Quaternion.LookRotation(agent.steeringTarget - transform.position);
         currentstate.RealUpdate();
     }
     
