@@ -14,6 +14,8 @@ public class CustomerAI : MonoBehaviour
     private CustomerAIState currentstate;
 
     private Table table;
+    private Chair chair;
+    private Vector3 savedNavMeshPos; // last pos customer was at in navmesh before sitting
 
     // Start is called before the first frame update
     void Start()
@@ -54,11 +56,29 @@ public class CustomerAI : MonoBehaviour
             }
         } while (table == null); // !!!! might cause an issue if all tables are full...
 
-        SetNextWalkingDestination(CustomerWalkingState.NextAction.Ordering, table.transform);
+        chair = table.GetFreeChair();
+        if (chair == null)
+            Debug.LogError("There was no free chair, something went wrong...");
+
+        SetNextWalkingDestination(CustomerWalkingState.NextAction.Ordering, chair.transform);
         currentstate = walkingState;
     }
 
     public Table GetTable() => table;
+    public Chair GetChair() => chair;
+    public void SetNavMeshAgentActive(bool isActive)
+    {
+        agent.enabled = isActive;
+    }
+
+    public void SaveNavMeshPos()
+    {
+        savedNavMeshPos = transform.position;
+    }
+    public void MoveToSavedNavMeshPos()
+    {
+        transform.position = savedNavMeshPos;
+    }
 
     // Update is called once per frame
     void Update()

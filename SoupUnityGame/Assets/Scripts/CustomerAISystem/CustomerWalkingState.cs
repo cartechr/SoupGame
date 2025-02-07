@@ -16,7 +16,7 @@ public class CustomerWalkingState : CustomerAIState
 
     public override void InitializeState()
     {
-
+        
     }
 
     public override void RealUpdate()
@@ -35,6 +35,7 @@ public class CustomerWalkingState : CustomerAIState
                     customerAI.SwitchToOrdering();
                     break;
                 case NextAction.Leaving:
+                    customerAI.GetTable().SetOccupied(false);
                     customerAI.UnAlive();
                     break;
             }
