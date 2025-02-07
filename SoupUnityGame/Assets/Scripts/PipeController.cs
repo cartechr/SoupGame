@@ -7,7 +7,7 @@ public class PipeController : MonoBehaviour
     [SerializeField]
     private SoupPot soupPot;
     private List<PipeSegment> segments = new List<PipeSegment>();
-    private float segmentDamageChance = 0f; // between 0 and 1
+    private float segmentDamageChance = 0.5f; // between 0 and 1
     //private float damageMultiplier = 
 
     // Start is called before the first frame update

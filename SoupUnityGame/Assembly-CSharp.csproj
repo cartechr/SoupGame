@@ -61,10 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerAI.cs" />
-    <Compile Include="Assets\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerAIManager.cs" />
     <Compile Include="Assets\Scripts\TableManager.cs" />
-    <Compile Include="Assets\Scripts\Christians\FirstPersonController.cs" />
     <Compile Include="Assets\Input\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\SoupPot.cs" />
     <Compile Include="Assets\Scripts\Table.cs" />
@@ -79,8 +77,8 @@
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerAIState.cs" />
     <Compile Include="Assets\Scripts\WaveSystem.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
+    <Compile Include="Assets\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\Scripts\CustomerAISystem\CustomerOrderingState.cs" />
-    <Compile Include="Assets\Scripts\Christians\OutlineSelection.cs" />
     <Compile Include="Assets\Scripts\PipeSegment.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>

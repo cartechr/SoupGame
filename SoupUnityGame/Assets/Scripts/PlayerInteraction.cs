@@ -1,49 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    List<Interactable> interactables = new List<Interactable>();
+    [SerializeField]
+    private LayerMask selectionLayerMask;
+    private Transform selectedObject;
+    [SerializeField]
+    private float maxSelectionDistance = 5f;
 
-    private void Start()
+    private void Update()
     {
-
-    }
-    public void ReceiveInteractInput()
-    {
-        if (interactables.Count == 0)
-            return;
-
-        float shortestDistance = Mathf.Infinity;
-        Interactable savedInteractible = null;
-
-        foreach (Interactable item in interactables) 
+        // reset selected object
+        if (selectedObject != null)
         {
-            float distance = Vector3.Distance(transform.position, item.transform.position);
-            if(distance < shortestDistance)
-            {
-                shortestDistance = distance;
-                savedInteractible = item;
-            }
+            selectedObject.gameObject.GetComponent<Outline>().enabled = false;
+            selectedObject = null;
         }
-        savedInteractible.Interact();
+
+        // check if we are targeting an object and select if so
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hit, maxSelectionDistance, selectionLayerMask))
+        {
+            selectedObject = hit.transform;
+        }
+        else
+        {
+            selectedObject = null;
+        }
+
+        UpdateSelectionGraphics();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void UpdateSelectionGraphics()
     {
-        if (collision.GetComponent<Interactable>() == true)
+        if (selectedObject == null) 
+        { 
+            return; 
+        }
+
+        if (selectedObject.GetComponent<Outline>() != null)
         {
-            interactables.Add(collision.GetComponent<Interactable>());
+            selectedObject.gameObject.GetComponent<Outline>().enabled = true;
+        }
+        else
+        {
+            Outline outline = selectedObject.gameObject.AddComponent<Outline>();
+            outline.enabled = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void Interact()
     {
-        if (collision.GetComponent<Interactable>() == true)
+        if (selectedObject != null)
         {
-            interactables.Remove(collision.GetComponent<Interactable>());
+            selectedObject.GetComponent<Interactable>().Interact();
         }
     }
 }

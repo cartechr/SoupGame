@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -19,9 +20,7 @@ public class FirstPersonController : MonoBehaviour
     private bool isMoving;
     private Vector3 currentMovement = Vector3.zero;
     private CharacterController characterController;
-    public Camera mainCamera;
     private float verticalRotation;
-
 
     private InputAction moveAction;
     private InputAction lookAction;
@@ -30,10 +29,12 @@ public class FirstPersonController : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 lookInput;
 
+    private PlayerInteraction interact;
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        interact = GetComponent<PlayerInteraction>();
 
         moveAction = PlayerControls.FindActionMap("Player").FindAction("Movement");
         lookAction = PlayerControls.FindActionMap("Player").FindAction("Look");
@@ -45,6 +46,10 @@ public class FirstPersonController : MonoBehaviour
 
         lookAction.performed += context => lookInput = context.ReadValue<Vector2>();
         lookAction.canceled += context => lookInput = Vector2.zero;
+
+        interactAction.performed += HandleInteractInput;
+
+        Cursor.visible = false;
     }
 
     private void OnEnable()
@@ -94,6 +99,11 @@ public class FirstPersonController : MonoBehaviour
 
         verticalRotation -= lookInput.y * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -upDownRange, upDownRange);
-        mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+        Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+    }
+
+    void HandleInteractInput(InputAction.CallbackContext context)
+    {
+        interact.Interact();
     }
 }

@@ -32,6 +32,18 @@ public class CustomerAI : MonoBehaviour
 
         // pick a random table from available options
         Table[] tables = TableManager.Instance().GetTables();
+
+        bool freeTableExists = false;
+        foreach (Table table in tables)
+        {
+            if (!table.IsOccupied)
+                freeTableExists = true;
+        }
+        if (!freeTableExists)
+        {
+            Debug.LogError("NO FREE TABLE EXISTS, ADD CUSTOMER TO QUEUE");
+        }
+
         do
         {
             int tableIndex = Random.Range(0, tables.Length);
