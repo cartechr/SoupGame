@@ -7,11 +7,15 @@ public class CustomerEatingState : CustomerAIState
     private float eatingTimer = 0f;
     private float totalEatingTime = 2f;
 
+
     public override void InitializeState()
     {
         customerAI.SaveNavMeshPos();
         customerAI.SetNavMeshAgentActive(false);
         customerAI.transform.position = customerAI.GetChair().transform.position;
+
+        //Spawn Soup
+        customerAI.SpawnSoup();
     }
 
     public override void RealUpdate()
@@ -22,6 +26,11 @@ public class CustomerEatingState : CustomerAIState
         }
         else
         {
+            //Spawn Bowl
+
+            customerAI.KillSoup();
+            customerAI.SpawnBowl();
+
             eatingTimer = 0f;
             
             customerAI.MoveToSavedNavMeshPos();

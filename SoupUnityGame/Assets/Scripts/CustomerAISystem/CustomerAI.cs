@@ -7,6 +7,14 @@ using UnityEngine.AI;
 public class CustomerAI : MonoBehaviour
 {
     public NavMeshAgent agent;
+
+    //Get Soup Objects
+    public GameObject fullSoup;
+    private GameObject SpawnedSoup;
+    public GameObject Bowl;
+    public GameObject SpawnedBowl;
+
+
     private CustomerWalkingState walkingState;
     private CustomerEatingState eatingState;
     private CustomerOrderingState orderingState;
@@ -104,17 +112,38 @@ public class CustomerAI : MonoBehaviour
         currentstate = orderingState;
         currentstate.InitializeState();
     }
-   /* public void SwitchToQueue()
-    {
-        currentstate = queueState;
-        currentstate.InitializeState();
-    }*/
-
+    /* public void SwitchToQueue()
+     {
+         currentstate = queueState;
+         currentstate.InitializeState();
+     }*/
     public void UnAlive()
     {
         Destroy(gameObject);
     }
 
+    public void SpawnSoup()
+    {
+       SpawnedSoup = Instantiate(fullSoup, new Vector3(GetTable().transform.position.x, GetTable().transform.position.y + 1, GetTable().transform.position.z), Quaternion.identity);
+        Debug.Log("SOUP");
+
+    }
+
+    public void KillSoup()
+    {
+        Destroy(SpawnedSoup);
+    }
+
+    public void SpawnBowl()
+    {
+       SpawnedBowl = Instantiate(Bowl, new Vector3(GetTable().transform.position.x, GetTable().transform.position.y + 1, GetTable().transform.position.z), Quaternion.identity);
+
+    }
+
+    public void KillBowl()
+    {
+        Destroy(SpawnedBowl);
+    }
     public void SetNextWalkingDestination(CustomerWalkingState.NextAction action, Transform destination)
     {
         walkingState.SetDestination(action, destination);

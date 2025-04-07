@@ -6,7 +6,6 @@ public class CustomerAIManager : MonoBehaviour
 {
     [SerializeField]
     private Transform customerSpawn;
-
     private static CustomerAIManager instance;
 
     private void Awake()

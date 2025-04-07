@@ -859,6 +859,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 289658174}
+  fullSoup: {fileID: 919132149155446097, guid: 3b8347771fb9cd14bb8ef72ad482d7a0, type: 3}
+  Bowl: {fileID: 919132149155446097, guid: 214995549212dab468cdd527c43ade9a, type: 3}
+  SpawnedBowl: {fileID: 0}
 --- !u!4 &289658176
 Transform:
   m_ObjectHideFlags: 0
@@ -2766,6 +2769,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1244261821}
+  fullSoup: {fileID: 919132149155446097, guid: 3b8347771fb9cd14bb8ef72ad482d7a0, type: 3}
+  Bowl: {fileID: 919132149155446097, guid: 214995549212dab468cdd527c43ade9a, type: 3}
+  SpawnedBowl: {fileID: 0}
 --- !u!1 &1283051313
 GameObject:
   m_ObjectHideFlags: 0
@@ -5470,10 +5476,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1585317889}
     m_Modifications:
+    - target: {fileID: 866743364294473126, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 866743364294473126, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173021295416526430, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2415800982911811876, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
       propertyPath: soupPot
       value: 
       objectReference: {fileID: 37620878}
+    - target: {fileID: 3224876435489461799, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224876435489461799, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224876435489461799, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 100.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224876435489461799, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224876435489461799, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224876435489461799, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224876435489461799, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224876435489461799, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224876435489461799, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.90588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224876435489461799, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.3076265
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224876435489461799, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6270755690600299975, guid: e882bf1eb107c8147954aab4bbeb5913, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
